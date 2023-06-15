@@ -37,7 +37,8 @@ export default function Logo(props: {
   }, [hovered]);
 
   useFrame(() => {
-    ref.current.rotation.y += 0.0075 + scroll.offset / 5;
+    ref.current.rotation.y = scroll.range(0, 1 / 4) * 5;
+    ref.current.position.x = (1 - scroll.range(0, 1 / 10)) * props.position[0];
 
     const offset = scroll.offset * 5;
     ref.current.scale.x = (1 + offset) * props.scale[0];
