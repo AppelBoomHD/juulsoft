@@ -1,6 +1,6 @@
-import GitHub from '../../public/github.svg';
-import Gmail from '../../public/gmail.svg';
-import Linkedin from '../../public/linkedin.svg';
+import GitHub from '../../../public/github.svg';
+import Gmail from '../../../public/gmail.svg';
+import Linkedin from '../../../public/linkedin.svg';
 
 export default function Footer() {
   return (

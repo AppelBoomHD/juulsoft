@@ -1,12 +1,12 @@
 import { Suspense } from 'react';
+import Logo from '@/components/canvas/Logo';
+import Experience from '@/components/dom/Experience';
+import Mouse from '@/components/dom/Mouse';
+import Projects from '@/components/dom/Projects';
+import Skills from '@/components/dom/Skills';
 import { Scroll, Stars } from '@react-three/drei';
 
 import { DarkModeToggle } from './DarkModeToggle';
-import Experience from './Experience';
-import Logo from './Logo';
-import Mouse from './Mouse';
-import Projects from './Projects';
-import Skills from './Skills';
 
 export default function Scene() {
   return (

@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 
 import './globals.css';
 
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
+import Footer from '@/components/dom/Footer';
+import Header from '@/components/dom/Header';
 
 import Providers from './providers';
 

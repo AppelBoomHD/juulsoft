@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 
-const GlobalCanvas = dynamic(() => import('@/components/GlobalCanvas'), {
+const GlobalCanvas = dynamic(() => import('@/components/canvas/GlobalCanvas'), {
   ssr: false,
 });
 
