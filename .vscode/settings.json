@@ -1,5 +1,6 @@
 {
   "editor.codeActionsOnSave": {
+    "source.organizeImports": true,
     "source.fixAll.eslint": true
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -7,5 +8,5 @@
   "editor.formatOnType": false,
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
-  "conventionalCommits.scopes": ["metadata", "font", "darkmodetoggle"]
+  "conventionalCommits.scopes": ["metadata", "font", "darkmodetoggle", "config"]
 }
