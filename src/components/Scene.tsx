@@ -14,7 +14,7 @@ export default function Scene() {
         <Scroll>
           <Stars factor={6} />
           <Suspense fallback={null}>
-            <Logo scale={[0.001, 0.001, 0.0005]} rotation={[0.2, 0, 0.05]} />
+          <Logo scale={[0.001, 0.001, 0.0005]} position={[-1.25, 0, 0]} />
           </Suspense>
         </Scroll>
         <Scroll html>
