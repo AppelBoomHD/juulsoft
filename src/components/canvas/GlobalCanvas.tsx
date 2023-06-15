@@ -9,7 +9,7 @@ export default function GlobalCanvas() {
   return (
     <Canvas camera={{ position: [0, 0, 25], fov: 25 }}>
       <ScrollControls pages={4} damping={0.1}>
-        <Scene />;
+        <Scene />
       </ScrollControls>
     </Canvas>
   );

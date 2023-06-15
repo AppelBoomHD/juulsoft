@@ -6,9 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "slicemachine": "start-slicemachine"
   },
   "dependencies": {
+    "@prismicio/client": "^7.1.0",
+    "@prismicio/next": "^1.3.1",
+    "@prismicio/react": "^2.7.0",
     "@react-spring/three": "^9.7.2",
     "@react-spring/web": "^9.7.2",
     "@react-three/drei": "^9.74.8",
@@ -19,8 +23,8 @@
     "@types/three": "^0.148.0",
     "autoprefixer": "10.4.14",
     "eslint": "8.41.0",
-    "eslint-config-next": "13.4.4",
-    "next": "13.4.4",
+    "eslint-config-next": "13.4.5",
+    "next": "13.4.5",
     "next-themes": "^0.2.1",
     "postcss": "8.4.24",
     "react": "^18.0.0",
@@ -31,9 +35,11 @@
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.0.2",
+    "@slicemachine/adapter-next": "^0.3.0",
     "@svgr/webpack": "^8.0.1",
     "babel-plugin-inline-react-svg": "^2.0.2",
     "prettier": "^2.8.8",
-    "prettier-plugin-tailwindcss": "^0.3.0"
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "slice-machine-ui": "^1.2.0"
   }
 }
