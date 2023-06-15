@@ -7,5 +7,5 @@
   "editor.formatOnType": false,
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
-  "conventionalCommits.scopes": ["metadata"]
+  "conventionalCommits.scopes": ["metadata", "font"]
 }

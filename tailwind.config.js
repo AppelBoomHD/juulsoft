@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
@@ -15,7 +17,10 @@ module.exports = {
       colors: {
         deepPurple: '#5F02F5',
         lightPurple: '#9671FF',
-        orange: '#FF9900'
+        orange: '#FF9900',
+      },
+      fontFamily: {
+        sans: ['Rowdies', 'sans-serif'],
       },
     },
   },
