@@ -1,11 +1,9 @@
-'use client';
+import dynamic from 'next/dynamic';
 
-import Scene from '@/components/Scene';
+const GlobalCanvas = dynamic(() => import('@/components/GlobalCanvas'), {
+  ssr: false,
+});
 
 export default function Home() {
-  return (
-    <>
-      <Scene />
-    </>
-  );
+  return <GlobalCanvas />;
 }
