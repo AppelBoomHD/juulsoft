@@ -18,10 +18,10 @@ export default function Scene() {
           </Suspense>
         </Scroll>
         <Scroll html>
-          <div className="w-screen">
-            <Mouse className="flex h-screen w-full items-end justify-center pb-4" />
-            <Projects className="flex h-screen w-full items-center justify-center" />
-          </div>
+        <Mouse />
+        <Projects />
+        <Skills />
+        <Experience />
         </Scroll>
 
         <spotLight intensity={1} position={[1, 5, 3]} />

@@ -2,17 +2,17 @@ import { useRef } from 'react';
 import { useScroll } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
-export default function Projects() {
+export default function Skills() {
   const ref = useRef<any>();
   const scroll = useScroll();
   useFrame(() => {
-    ref.current.style.opacity = scroll.curve(1 / 4, 1 / 4, 0.05);
+    ref.current.style.opacity = scroll.curve(1 / 2, 1 / 4, 0.05);
   });
 
   return (
-    <section ref={ref} className="flex h-screen w-full flex-col items-center justify-center">
-      <h1 className="pb-4 text-6xl font-bold">Projects</h1>
-      <h2 className="pb-4 text-2xl font-bold">Check out some projects I&apos;ve worked on!</h2>
+    <section ref={ref} className="flex h-screen w-full  flex-col items-center justify-center">
+      <h1 className="pb-4 text-6xl font-bold">Skills</h1>
+      <h2 className="pb-4 text-2xl font-bold">Skills I&apos;ve built up through the years</h2>
       <div className="flex h-1/2 w-full gap-6 p-6">
         <Card
           title="Chess-Phaser"
