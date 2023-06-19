@@ -8,5 +8,5 @@
   "editor.formatOnType": false,
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
-  "conventionalCommits.scopes": ["metadata", "font", "darkmodetoggle", "config", "logo"]
+  "conventionalCommits.scopes": ["metadata", "font", "darkmodetoggle", "config", "logo", "projects"]
 }

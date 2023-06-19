@@ -1,14 +1,14 @@
 import { Suspense } from 'react';
 import Logo from '@/components/canvas/Logo';
 import Experience from '@/components/dom/Experience';
-import Mouse from '@/components/dom/Mouse';
-import Projects from '@/components/dom/Projects';
+import Projects, { ProjectsProps } from '@/components/dom/Projects';
 import Skills from '@/components/dom/Skills';
 import { Scroll, Stars } from '@react-three/drei';
 
+import Mouse from '../dom/Mouse';
 import { DarkModeToggle } from './DarkModeToggle';
 
-export default function Scene() {
+export default function Scene(props: ProjectsProps) {
   return (
     <>
       <hemisphereLight name="Default Ambient Light" intensity={1} color="#FFFFFF" />
@@ -21,7 +21,7 @@ export default function Scene() {
       </Scroll>
       <Scroll html>
         <Mouse />
-        <Projects />
+        <Projects projects={props.projects} />
         <Skills />
         <Experience />
       </Scroll>
