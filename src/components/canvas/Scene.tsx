@@ -1,16 +1,19 @@
 import { Suspense } from 'react';
+import { GlobalContext } from '@/app/page';
 import Logo from '@/components/canvas/Logo';
 import Experience from '@/components/dom/Experience';
-import Projects, { ProjectsProps } from '@/components/dom/Projects';
+import Projects from '@/components/dom/Projects';
 import Skills from '@/components/dom/Skills';
-import { Scroll, Stars } from '@react-three/drei';
+import { Scroll, ScrollControls, Stars, useContextBridge } from '@react-three/drei';
 
 import Mouse from '../dom/Mouse';
 import { DarkModeToggle } from './DarkModeToggle';
 
-export default function Scene(props: ProjectsProps) {
+export default function Scene() {
+  const ContextBridge = useContextBridge(GlobalContext);
+
   return (
-    <>
+    <ScrollControls pages={4} damping={0.1}>
       <hemisphereLight name="Default Ambient Light" intensity={1} color="#FFFFFF" />
       <DarkModeToggle scale={0.5} />
       <Scroll>
@@ -20,11 +23,13 @@ export default function Scene(props: ProjectsProps) {
         </Suspense>
       </Scroll>
       <Scroll html>
-        <Mouse />
-        <Projects projects={props.projects} />
-        <Skills />
-        <Experience />
+        <ContextBridge>
+          <Mouse />
+          <Projects />
+          <Skills />
+          <Experience />
+        </ContextBridge>
       </Scroll>
-    </>
+    </ScrollControls>
   );
 }

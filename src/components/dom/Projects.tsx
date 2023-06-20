@@ -1,12 +1,13 @@
-import { useRef } from 'react';
-import { AllDocumentTypes, ProjectDocumentData } from '@/types/prismicio-types';
+import { useContext, useRef } from 'react';
+import { GlobalContext } from '@/app/page';
+import { ProjectDocumentData } from '@/types/prismicio-types';
 import { PrismicRichText } from '@prismicio/react';
 import { useScroll } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
-export type ProjectsProps = { projects: AllDocumentTypes[] };
+export default function Projects() {
+  const { projects } = useContext(GlobalContext);
 
-export default function Projects(props: ProjectsProps) {
   const ref = useRef<any>();
   const scroll = useScroll();
   useFrame(() => {
@@ -18,7 +19,7 @@ export default function Projects(props: ProjectsProps) {
       <h1 className="pb-4 text-6xl font-bold">Projects</h1>
       <h2 className="pb-4 text-2xl font-bold">Check out some projects I&apos;ve worked on!</h2>
       <div className="flex h-1/2 w-full gap-6 p-6">
-        {props.projects.map((project) => (
+        {projects.map((project) => (
           <Card project={project.data} key={project.id} />
         ))}
       </div>

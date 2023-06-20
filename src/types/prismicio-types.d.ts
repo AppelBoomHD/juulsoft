@@ -77,7 +77,58 @@ export type ProjectDocument<Lang extends string = string> = prismic.PrismicDocum
   'project',
   Lang
 >;
-export type AllDocumentTypes = ProjectDocument;
+/** Content for Skill documents */
+interface SkillDocumentData {
+  /**
+   * Name field in *Skill*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: skill.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  name: prismic.KeyTextField;
+  /**
+   * percentage field in *Skill*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: skill.percentage
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/number
+   *
+   */
+  percentage: prismic.NumberField;
+  /**
+   * Type field in *Skill*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Backend
+   * - **API ID Path**: skill.type
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/select
+   *
+   */
+  type: prismic.SelectField<'Backend' | 'Frontend' | 'Other', 'filled'>;
+}
+/**
+ * Skill document from Prismic
+ *
+ * - **API ID**: `skill`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SkillDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+  Simplify<SkillDocumentData>,
+  'skill',
+  Lang
+>;
+export type AllDocumentTypes = ProjectDocument | SkillDocument;
 declare module '@prismicio/client' {
   interface CreateClient {
     (
@@ -86,6 +137,12 @@ declare module '@prismicio/client' {
     ): prismic.Client<AllDocumentTypes>;
   }
   namespace Content {
-    export type { ProjectDocumentData, ProjectDocument, AllDocumentTypes };
+    export type {
+      ProjectDocumentData,
+      ProjectDocument,
+      SkillDocumentData,
+      SkillDocument,
+      AllDocumentTypes,
+    };
   }
 }
