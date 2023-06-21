@@ -1,9 +1,9 @@
 import { Suspense } from 'react';
-import { GlobalContext } from '@/app/page';
 import Logo from '@/components/canvas/Logo';
 import Experience from '@/components/dom/Experience';
 import Projects from '@/components/dom/Projects';
 import Skills from '@/components/dom/Skills';
+import { GlobalContext } from '@/contexts/GlobalContext';
 import { Scroll, ScrollControls, Stars, useContextBridge } from '@react-three/drei';
 
 import Mouse from '../dom/Mouse';

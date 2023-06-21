@@ -1,5 +1,5 @@
 import { useContext, useRef } from 'react';
-import { GlobalContext } from '@/app/page';
+import { GlobalContext } from '@/contexts/GlobalContext';
 import { ProjectDocumentData } from '@/types/prismicio-types';
 import { PrismicRichText } from '@prismicio/react';
 import { useScroll } from '@react-three/drei';
