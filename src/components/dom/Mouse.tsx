@@ -23,7 +23,7 @@ export default function Mouse() {
   });
 
   return (
-    <div className="flex h-screen w-full items-end justify-center pb-4">
+    <div className="flex h-screen w-screen items-end justify-center pb-4">
       <div
         ref={ref}
         className="rounded-lg px-1.5 py-4 ring-2 ring-gray-900 ring-opacity-75 dark:ring-gray-300"

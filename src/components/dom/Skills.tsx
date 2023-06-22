@@ -27,10 +27,12 @@ export default function Skills() {
   }, new Map());
 
   return (
-    <section ref={ref} className="flex h-screen w-full  flex-col items-center justify-center">
-      <h1 className="pb-4 text-6xl font-bold">Skills</h1>
-      <h2 className="pb-4 text-2xl font-bold">Skills I&apos;ve built up through the years</h2>
-      <div className="flex min-h-[50%] w-full gap-6 p-6">
+    <section ref={ref} className="flex h-screen w-screen flex-col items-center justify-center">
+      <h1 className="pb-4 text-3xl font-bold lg:text-6xl">Skills</h1>
+      <h2 className="pb-4 text-xl font-bold lg:text-2xl">
+        Skills I&apos;ve built up through the years
+      </h2>
+      <div className="flex min-h-[50%] w-full flex-col gap-6 p-6 sm:flex-row">
         {Array.from(mappedSkills.keys()).map((type) => (
           <Card type={type} skills={mappedSkills.get(type)!} key={type} />
         ))}
@@ -41,20 +43,22 @@ export default function Skills() {
 
 function Card({ type, skills }: { type: string; skills: SkillDocument[] }) {
   return (
-    <div className="w-full rounded-lg bg-slate-400 bg-opacity-40 p-4">
-      <h3 className="text-xl">{type}</h3>
-      {skills.map((skill) => (
-        <Skill skill={skill.data} key={skill.id} />
-      ))}
+    <div className="w-full rounded-lg bg-slate-400 bg-opacity-40 p-4 ring-2 ring-white">
+      <h3 className="mb-2 text-xl">{type}</h3>
+      <div className="flex flex-col justify-center">
+        {skills.map((skill) => (
+          <Skill skill={skill.data} key={skill.id} />
+        ))}
+      </div>
     </div>
   );
 }
 
 function Skill({ skill }: { skill: SkillDocumentData }) {
   return (
-    <div className="flex justify-between px-4">
-      <h4 className="text-l ">{skill.name}</h4>
-      <div className="h-4 w-1/4 rounded-full bg-white ">
+    <div className="px-4">
+      <h4 className="text-l mb-1 mt-4">{skill.name}</h4>
+      <div className="ml-4 h-4 rounded-full bg-slate-900 ring-2 ring-black">
         <div
           className="h-full rounded-full bg-gradient-to-r from-deepPurple via-orange to-lightPurple transition-all"
           style={{ width: `${skill.percentage}%` }}

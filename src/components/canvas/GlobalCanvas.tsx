@@ -6,7 +6,7 @@ import Scene from './Scene';
 
 export default function GlobalCanvas() {
   return (
-    <Canvas camera={{ position: [0, 0, 25], fov: 25 }}>
+    <Canvas orthographic camera={{ zoom: 20 }}>
       <Scene />
     </Canvas>
   );

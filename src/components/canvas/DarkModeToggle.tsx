@@ -7,14 +7,15 @@ import { animated, useSpring } from '@react-spring/three';
 import { useTexture } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
 import { useTheme } from 'next-themes';
-import { sRGBEncoding } from 'three';
+import { BufferGeometry, Material, Mesh, sRGBEncoding } from 'three';
 
-export function DarkModeToggle(props: { scale: number }) {
-  const { width, height } = useThree((state) => state.viewport);
+export function DarkModeToggle() {
+  const { width } = useThree((state) => state.size);
+  const { width: vw, height: vh } = useThree((state) => state.viewport);
   const [moonTexture, sunTexture] = useTexture(['/models/moon.jpeg', '/models/sun.jpeg']);
   moonTexture.encoding = sunTexture.encoding = sRGBEncoding;
 
-  const ref = useRef<any>();
+  const ref = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
   const [hovered, setHovered] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -23,23 +24,22 @@ export function DarkModeToggle(props: { scale: number }) {
   }, [hovered]);
 
   const { scale } = useSpring({
-    scale: props.scale * (hovered ? 1.1 : 1),
+    scale: hovered ? 1.1 : 1,
   });
 
   useFrame(() => {
     if (hovered) {
-      ref.current.rotation.y += 0.015;
+      ref.current!.rotation.y += 0.015;
     } else {
-      ref.current.rotation.y += 0.005;
+      ref.current!.rotation.y += 0.005;
     }
   });
 
   return (
     <animated.mesh
       ref={ref}
-      {...props}
       scale={scale}
-      position={[width / 2 - 1, height / 2 - 1, 0]}
+      position={[vw / 2 - 3.75, vh / 2 - 3.75, 0]}
       dispose={null}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
@@ -47,7 +47,7 @@ export function DarkModeToggle(props: { scale: number }) {
         setTheme(theme === 'light' ? 'dark' : 'light');
       }}
     >
-      <sphereGeometry args={[1, 32, 32]} />
+      <sphereGeometry args={[1.35 * (width > 1024 ? 1.5 : 1), 32, 32]} />
       <meshStandardMaterial map={theme === 'light' ? sunTexture : moonTexture} />
     </animated.mesh>
   );

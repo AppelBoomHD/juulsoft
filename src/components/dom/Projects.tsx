@@ -18,9 +18,11 @@ export default function Projects() {
   });
 
   return (
-    <section ref={ref} className="flex h-screen w-full flex-col items-center justify-center">
-      <h1 className="pb-4 text-6xl font-bold">Projects</h1>
-      <h2 className="pb-4 text-2xl font-bold">Check out some projects I&apos;ve worked on!</h2>
+    <section ref={ref} className="flex h-screen w-screen flex-col items-center justify-center">
+      <h1 className="pb-4 text-3xl font-bold lg:text-6xl">Projects</h1>
+      <h2 className="pb-4 text-xl font-bold lg:text-2xl">
+        Check out some projects I&apos;ve worked on!
+      </h2>
       <div className="flex h-1/2 w-full gap-6 p-6">
         {projects.map((project) => (
           <Card project={project.data} key={project.id} />
