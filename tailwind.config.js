@@ -20,7 +20,7 @@ module.exports = {
         orange: '#FF9900',
       },
       fontFamily: {
-        sans: ['Rowdies', 'sans-serif'],
+        sans: ['Geomanist', 'sans-serif'],
       },
     },
   },
