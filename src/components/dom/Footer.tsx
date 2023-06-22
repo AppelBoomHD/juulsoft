@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <div className="absolute bottom-6 right-6 z-10 flex flex-row gap-x-2 ">
       <a
-        href="mailto:julianriemersma@gmail.com"
+        href="mailto:info@juulsoft.com"
         target="_blank"
         className="rounded-lg from-deepPurple via-orange to-lightPurple px-1 shadow-md transition-all hover:scale-105 hover:bg-gradient-to-bl dark:shadow-gray-700"
       >

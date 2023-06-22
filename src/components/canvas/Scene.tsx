@@ -28,7 +28,7 @@ export default function Scene() {
           <Mouse />
           <Projects />
           <Skills />
-          <Experience />
+          <Contact />
         </ContextBridge>
       </Scroll>
     </ScrollControls>
