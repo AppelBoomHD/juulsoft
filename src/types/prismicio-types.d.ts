@@ -62,7 +62,23 @@ interface ProjectDocumentData {
    *
    */
   image: prismic.ImageField<never>;
+  /**
+   * Slice Zone field in *Project*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismic.SliceZone<ProjectDocumentDataSlicesSlice>;
 }
+/**
+ * Slice for *Project → Slice Zone*
+ *
+ */
+type ProjectDocumentDataSlicesSlice = TagsSlice;
 /**
  * Project document from Prismic
  *
@@ -129,6 +145,49 @@ export type SkillDocument<Lang extends string = string> = prismic.PrismicDocumen
   Lang
 >;
 export type AllDocumentTypes = ProjectDocument | SkillDocument;
+/**
+ * Item in Tags → Items
+ *
+ */
+export interface TagsSliceDefaultItem {
+  /**
+   * Tag field in *Tags → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tags.items[].tag
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  tag: prismic.KeyTextField;
+}
+/**
+ * Default variation for Tags Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TagsSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Record<string, never>,
+  Simplify<TagsSliceDefaultItem>
+>;
+/**
+ * Slice variation for *Tags*
+ *
+ */
+type TagsSliceVariation = TagsSliceDefault;
+/**
+ * Tags Shared Slice
+ *
+ * - **API ID**: `tags`
+ * - **Description**: `Tags`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TagsSlice = prismic.SharedSlice<'tags', TagsSliceVariation>;
 declare module '@prismicio/client' {
   interface CreateClient {
     (
@@ -139,10 +198,15 @@ declare module '@prismicio/client' {
   namespace Content {
     export type {
       ProjectDocumentData,
+      ProjectDocumentDataSlicesSlice,
       ProjectDocument,
       SkillDocumentData,
       SkillDocument,
       AllDocumentTypes,
+      TagsSliceDefaultItem,
+      TagsSliceDefault,
+      TagsSliceVariation,
+      TagsSlice,
     };
   }
 }

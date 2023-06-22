@@ -1,0 +1,18 @@
+{
+  "id": "tags",
+  "type": "SharedSlice",
+  "name": "Tags",
+  "description": "Tags",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": { "tag": { "type": "Text", "config": { "label": "Tag", "placeholder": "" } } }
+    }
+  ]
+}
