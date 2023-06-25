@@ -34,8 +34,8 @@ export default function Projects() {
 
 function Card({ project }: { project: ProjectDocumentData }) {
   const [hovered, setHovered] = useState(false);
-  const { marginX } = useSpring({
-    marginX: hovered ? -24 : 0,
+  const { transform } = useSpring({
+    transform: hovered ? 'scale(1.3)' : 'scale(1)',
     config: config.wobbly,
   });
 
@@ -52,14 +52,15 @@ function Card({ project }: { project: ProjectDocumentData }) {
         </div>
         <animated.div
           style={{
-            marginLeft: marginX,
-            marginRight: marginX,
+            transform,
           }}
+          className="flex justify-center"
         >
           <PrismicNextImage
             onMouseOver={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            className="h-1/2 rounded-lg shadow-lg shadow-gray-600 ring-1 ring-black"
+            height={230}
+            className="rounded-lg shadow-lg shadow-gray-600 ring-1 ring-black"
             field={project.image}
           />
         </animated.div>
@@ -91,7 +92,7 @@ function Card({ project }: { project: ProjectDocumentData }) {
   );
 }
 
-function Tag({ tag, key }: { tag: KeyTextField; key: number }) {
+function Tag({ tag }: { tag: KeyTextField }) {
   const [hovered, setHovered] = useState(false);
   const { paddingX, paddingY } = useSpring({
     paddingX: hovered ? 12 : 8,
@@ -110,7 +111,6 @@ function Tag({ tag, key }: { tag: KeyTextField; key: number }) {
       onMouseOver={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className="rounded-lg bg-orange text-xs ring-2 ring-black"
-      key={key}
     >
       {tag}
     </animated.span>
