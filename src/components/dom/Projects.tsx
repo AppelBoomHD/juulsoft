@@ -28,7 +28,7 @@ export default function Projects() {
       <h2 className="pb-4 text-lg font-bold md:text-xl lg:text-2xl">
         Check out some projects I&apos;ve worked on!
       </h2>
-      <div className="h-3/5 w-full">
+      <div className="w-full">
         <Swiper
           centeredSlides
           slidesPerView={'auto'}
