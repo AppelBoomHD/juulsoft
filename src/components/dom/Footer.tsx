@@ -4,7 +4,7 @@ import Linkedin from '../../../public/linkedin.svg';
 
 export default function Footer() {
   return (
-    <div className="absolute bottom-6 right-6 z-10 flex flex-row gap-x-2 ">
+    <div className="invisible absolute bottom-6 right-6 z-10 flex flex-row gap-x-2 sm:visible ">
       <a
         href="mailto:info@juulsoft.com"
         target="_blank"
