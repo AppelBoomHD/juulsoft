@@ -5,12 +5,10 @@ import Contact from '@/components/dom/Contact';
 import Mouse from '@/components/dom/Mouse';
 import Projects from '@/components/dom/Projects';
 import Skills from '@/components/dom/Skills';
-import { GlobalContext } from '@/contexts/GlobalContext';
-import { Scroll, ScrollControls, Stars, useContextBridge } from '@react-three/drei';
+import { GlobalContext, GlobalContextType } from '@/contexts/GlobalContext';
+import { Scroll, ScrollControls, Stars } from '@react-three/drei';
 
-export default function Scene() {
-  const ContextBridge = useContextBridge(GlobalContext);
-
+export default function Scene(props: GlobalContextType) {
   return (
     <ScrollControls pages={4} damping={0.1}>
       <hemisphereLight name="Default Ambient Light" intensity={1} color="#FFFFFF" />
@@ -24,14 +22,14 @@ export default function Scene() {
         </Suspense>
       </Scroll>
       <Scroll html>
-        <ContextBridge>
+        <GlobalContext.Provider value={props}>
           <div className="h-[calc(100dvh)] w-[calc(100dvw)]">
             <Mouse />
             <Projects />
             <Skills />
             <Contact />
           </div>
-        </ContextBridge>
+        </GlobalContext.Provider>
       </Scroll>
     </ScrollControls>
   );

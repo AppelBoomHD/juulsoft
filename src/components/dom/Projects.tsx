@@ -8,7 +8,7 @@ import { PrismicRichText } from '@prismicio/react';
 import { animated, config, useSpring } from '@react-spring/web';
 import { useScroll } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 
@@ -17,7 +17,6 @@ export default function Projects() {
 
   const ref = useRef<HTMLElement>(null);
   const scroll = useScroll();
-  const swiper = useSwiper();
   useFrame(() => {
     ref.current!.style.opacity = scroll.curve(1 / 4, 1 / 4, 0.05).toString();
   });
