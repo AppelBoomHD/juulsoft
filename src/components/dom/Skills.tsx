@@ -27,7 +27,7 @@ export default function Skills() {
   }, new Map());
 
   return (
-    <section ref={ref} className="flex h-screen w-screen flex-col items-center justify-center">
+    <section ref={ref} className="flex h-full flex-col items-center justify-center">
       <h1 className="pb-4 text-3xl font-bold lg:text-6xl">Skills</h1>
       <h2 className="pb-4 text-xl font-bold lg:text-2xl">
         Skills I&apos;ve built up through the years

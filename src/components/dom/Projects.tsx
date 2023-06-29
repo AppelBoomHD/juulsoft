@@ -23,7 +23,7 @@ export default function Projects() {
   });
 
   return (
-    <section ref={ref} className="flex h-screen w-screen flex-col items-center justify-center">
+    <section ref={ref} className="flex h-full flex-col items-center justify-center">
       <h1 className="pb-4 text-2xl font-bold md:text-3xl lg:text-6xl">Projects</h1>
       <h2 className="pb-4 text-lg font-bold md:text-xl lg:text-2xl">
         Check out some projects I&apos;ve worked on!

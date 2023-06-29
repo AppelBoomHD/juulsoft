@@ -10,7 +10,7 @@ export default function Contact() {
   });
 
   return (
-    <section ref={ref} className="flex h-screen w-full flex-col items-center justify-center">
+    <section ref={ref} className="flex h-full flex-col items-center justify-center">
       <h1 className="pb-4 text-3xl font-bold lg:text-6xl">Contact</h1>
       <h2 className="pb-4 text-xl font-bold lg:text-2xl">Keep in touch!</h2>
       <div className="flex h-1/2 min-w-[50%] gap-6 p-6">

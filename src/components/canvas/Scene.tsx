@@ -16,7 +16,7 @@ export default function Scene() {
       <hemisphereLight name="Default Ambient Light" intensity={1} color="#FFFFFF" />
       <DarkModeToggle />
       <Scroll>
-        <group position={[0, -50, -10]}>
+        <group position={[0, -60, -10]}>
           <Stars factor={2} radius={30} />
         </group>
         <Suspense fallback={null}>
@@ -25,10 +25,12 @@ export default function Scene() {
       </Scroll>
       <Scroll html>
         <ContextBridge>
-          <Mouse />
-          <Projects />
-          <Skills />
-          <Contact />
+          <div className="h-[calc(100dvh)] w-[calc(100dvw)]">
+            <Mouse />
+            <Projects />
+            <Skills />
+            <Contact />
+          </div>
         </ContextBridge>
       </Scroll>
     </ScrollControls>
