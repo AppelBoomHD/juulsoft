@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="invisible absolute bottom-6 right-6 z-10 flex flex-row gap-x-2 sm:visible ">
       <a
-        href="https://drive.google.com/file/d/1A_kUC3O6fSbZ2nYvPeIvTFmodzZdARcn/view?usp=sharing"
+        href="https://docs.google.com/document/d/1tsHmEuqCus7-Lz-IjPQy99hcVD6vq5dU/edit?usp=sharing&ouid=102620587897862864426&rtpof=true&sd=true"
         target="_blank"
         className="rounded-lg from-deepPurple via-orange to-lightPurple px-1 shadow-md transition-all hover:scale-105 hover:bg-gradient-to-bl dark:shadow-gray-700"
       >
