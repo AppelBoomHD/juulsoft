@@ -1,8 +1,8 @@
 import { useContext, useRef, useState } from 'react';
 import SliderButtons from '@/components/dom/SliderButtons';
+import Tag from '@/components/dom/Tag';
 import { GlobalContext } from '@/contexts/GlobalContext';
 import { ProjectDocumentData } from '@/types/prismicio-types';
-import { KeyTextField } from '@prismicio/client';
 import { PrismicNextImage } from '@prismicio/next';
 import { PrismicRichText } from '@prismicio/react';
 import { animated, config, useSpring } from '@react-spring/web';
@@ -18,7 +18,7 @@ export default function Projects() {
   const ref = useRef<HTMLElement>(null);
   const scroll = useScroll();
   useFrame(() => {
-    ref.current!.style.opacity = scroll.curve(1 / 4, 1 / 4, 0.05).toString();
+    ref.current!.style.opacity = scroll.curve(1 / 2, 1 / 4, 0.05).toString();
   });
 
   return (
@@ -55,7 +55,7 @@ function Card({ project }: { project: ProjectDocumentData }) {
 
   return (
     <div className="h-full rounded-xl bg-white p-1">
-      <div className="flex flex-col justify-between rounded-lg bg-slate-400 p-4">
+      <div className="flex flex-col justify-between rounded-lg bg-slate-400 p-4 dark:bg-gray-700">
         <div className="mb-4 space-y-4">
           <div>
             <h2 className="mb-2 text-lg md:text-xl">{project.title}</h2>
@@ -106,30 +106,5 @@ function Card({ project }: { project: ProjectDocumentData }) {
         </div>
       </div>
     </div>
-  );
-}
-
-function Tag({ tag }: { tag: KeyTextField }) {
-  const [hovered, setHovered] = useState(false);
-  const { paddingX, paddingY } = useSpring({
-    paddingX: hovered ? 12 : 8,
-    paddingY: hovered ? 6 : 4,
-    config: config.wobbly,
-  });
-
-  return (
-    <animated.span
-      style={{
-        paddingLeft: paddingX,
-        paddingRight: paddingX,
-        paddingTop: paddingY,
-        paddingBottom: paddingY,
-      }}
-      onMouseOver={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="rounded-lg bg-orange text-xs ring-2 ring-black"
-    >
-      {tag}
-    </animated.span>
   );
 }

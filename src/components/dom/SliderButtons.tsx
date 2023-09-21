@@ -6,7 +6,7 @@ export default function SliderButtons() {
   const slider = useSwiper();
 
   return (
-    <div className="my-2 flex justify-center gap-x-4">
+    <div className="mb-1 mt-3 flex justify-center gap-x-4">
       <button
         className="rounded-full bg-deepPurple p-2 transition-all hover:scale-105 sm:p-4"
         onClick={() => slider.slidePrev()}

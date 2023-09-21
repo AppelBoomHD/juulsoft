@@ -1,32 +1,35 @@
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import { DarkModeToggle } from '@/components/canvas/DarkModeToggle';
 import Logo from '@/components/canvas/Logo';
+import About from '@/components/dom/About';
 import Contact from '@/components/dom/Contact';
-import Mouse from '@/components/dom/Mouse';
+import Hero from '@/components/dom/Hero';
 import Projects from '@/components/dom/Projects';
-import Skills from '@/components/dom/Skills';
 import { GlobalContext, GlobalContextType } from '@/contexts/GlobalContext';
 import { Scroll, ScrollControls, Stars } from '@react-three/drei';
 
 export default function Scene(props: GlobalContextType) {
+  const [section, setSection] = useState(0);
+
   return (
-    <ScrollControls pages={4} damping={0.1}>
+    <ScrollControls pages={4} damping={0}>
       <hemisphereLight name="Default Ambient Light" intensity={1} color="#FFFFFF" />
       <DarkModeToggle />
       <Scroll>
+        {/* <ScrollManager section={section} onSectionChange={setSection} /> */}
         <group position={[0, -60, -10]}>
           <Stars factor={2} radius={30} />
         </group>
         <Suspense fallback={null}>
-          <Logo scale={[0.005, 0.005, 0.0025]} position={[-6.25, 0, 0]} />
+          <Logo scale={[0.005, 0.005, 0.0025]} position={[-6.75, 0, 0]} />
         </Suspense>
       </Scroll>
       <Scroll html>
         <GlobalContext.Provider value={props}>
-          <div className="h-[calc(100dvh)] w-[calc(100dvw)]">
-            <Mouse />
+          <div className="h-[100svh] w-screen">
+            <Hero />
+            <About />
             <Projects />
-            <Skills />
             <Contact />
           </div>
         </GlobalContext.Provider>

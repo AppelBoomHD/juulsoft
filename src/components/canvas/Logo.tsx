@@ -6,7 +6,7 @@ import React, { useEffect, useRef } from 'react';
 import { animated, config, useSpring } from '@react-spring/three';
 import { useGLTF, useScroll } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
-import { BufferGeometry } from 'three';
+import { BufferGeometry, Group } from 'three';
 
 export default function Logo(props: {
   scale: [number, number, number];
@@ -17,7 +17,7 @@ export default function Logo(props: {
   const [hovered, setHovered] = React.useState(false);
   const [hoveredLogo, setHoveredLogo] = React.useState(false);
   const [clicked, setClicked] = React.useState(false);
-  const ref = useRef<any>();
+  const ref = useRef<Group>(null);
 
   const { rotation, scale } = useSpring({
     rotation: hoveredLogo
@@ -38,14 +38,14 @@ export default function Logo(props: {
   }, [hovered]);
 
   useFrame(() => {
-    ref.current.rotation.y = scroll.range(0, 1 / 4) * 5;
-    ref.current.position.x =
+    ref.current!.rotation.y = scroll.range(0, 1 / 4) * 5;
+    ref.current!.position.x =
       (1 - scroll.range(0, 1 / 10)) * props.position[0] * (width > 640 ? 1 : 0.75);
 
     const offset = scroll.offset * 5;
-    ref.current.scale.x = (1 + offset) * props.scale[0] * (width > 640 ? 1 : 0.75);
-    ref.current.scale.y = (1 + offset) * props.scale[1] * (width > 640 ? 1 : 0.75);
-    ref.current.scale.z = (1 + offset) * props.scale[2] * (width > 640 ? 1 : 0.75);
+    ref.current!.scale.x = (1 + offset) * props.scale[0] * (width > 640 ? 1 : 0.75);
+    ref.current!.scale.y = (1 + offset) * props.scale[1] * (width > 640 ? 1 : 0.75);
+    ref.current!.scale.z = (1 + offset) * props.scale[2] * (width > 640 ? 1 : 0.75);
   });
 
   return (
