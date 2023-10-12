@@ -34,7 +34,7 @@ export default function About() {
         Skills I&apos;ve built up through the years
       </h2> */}
       <div className="flex w-3/4 flex-col gap-1 sm:flex-row sm:gap-6">
-        <div className="w-full rounded-lg border-4 border-white bg-gray-700 p-4">
+        <div className="w-full rounded-lg border-4 border-white bg-slate-400 p-4 dark:bg-gray-700">
           Hi, my name is Julian Riemersma. I&apos;m a fullstack developer from The Netherlands that
           loves to create digital experiences that users love.
         </div>
