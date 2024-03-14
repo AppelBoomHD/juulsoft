@@ -59,7 +59,7 @@ body {
   pointer-events: none;
 }
 
-@variants hover {
+@layer utilities {
   .fill-gmail path:nth-child(1) {
     fill: #4285f4;
   }
@@ -75,4 +75,21 @@ body {
   .fill-gmail path:nth-child(5) {
     fill: #fbbc04;
   }
+}
+
+.group:hover .fill-linkedin path:nth-child(1) {
+  fill: #ffffff;
+}
+.group:hover .fill-linkedin path:nth-child(2) {
+  fill: #0b66c2;
+}
+
+.fill-linkedin path:nth-child(1) {
+  fill: none;
+}
+.fill-linkedin path:nth-child(2) {
+  fill: black;
+}
+.dark .fill-linkedin path:nth-child(2) {
+  fill: white;
 }

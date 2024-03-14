@@ -27,7 +27,7 @@ export default function Footer() {
         target="_blank"
         className="group flex h-8 w-8 items-center justify-center rounded-lg p-1.5 shadow-md transition-all hover:scale-105 dark:shadow-gray-700 lg:h-10 lg:w-10"
       >
-        <Linkedin className="fill-black group-hover:fill-[#0A66C2] dark:fill-white" />
+        <Linkedin className="fill-linkedin" />
       </a>
     </footer>
   );
