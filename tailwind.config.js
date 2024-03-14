@@ -21,6 +21,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Geomanist', 'sans-serif'],
+        nunito: ['NunitoSans'],
       },
     },
   },
