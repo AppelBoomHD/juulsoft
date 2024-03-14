@@ -4,7 +4,7 @@ import Linkedin from '../../../public/linkedin.svg';
 
 export default function Footer() {
   return (
-    <footer className="invisible absolute bottom-6 right-6 z-10 flex flex-row gap-x-2 sm:visible ">
+    <footer className="invisible absolute bottom-2 right-6 z-10 flex flex-row gap-x-2 sm:visible ">
       <a
         title="email"
         href="mailto:info@juulsoft.com"
